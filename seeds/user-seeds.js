@@ -3,53 +3,53 @@ const { User } = require("../models");
 
 const userdata = [
   {
-    username: "sampleuser1",
-    email: "sampleuser1@mail.com",
+    username: "urethrathink",
+    email: "urethrathink@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser2",
-    email: "sampleuser2@mail.com",
+    username: "gingerbreaddrafty",
+    email: "gingerbreaddrafty@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser3",
-    email: "sampleuser3@mail.com",
+    username: "comparatorfoxglove",
+    email: "comparatorfoxglove@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser4",
-    email: "sampleuser4@mail.com",
+    username: "vivacioustake",
+    email: "vivacioustake@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser5",
-    email: "sampleuser5@mail.com",
+    username: "onesiespantsuit",
+    email: "onesiespantsuit@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser6",
-    email: "sampleuser6@mail.com",
+    username: "warnoperating",
+    email: "warnoperating@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser7",
-    email: "sampleuser7@mail.com",
+    username: "forcefuldiving",
+    email: "forcefuldiving@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser8",
-    email: "sampleuser8@mail.com",
+    username: "rabbitchide",
+    email: "rabbitchide@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser9",
+    username: "concertouch",
     email: "sampleuser9@mail.com",
     password: "password123",
   },
   {
-    username: "sampleuser10",
-    email: "sampleuser10@mail.com",
+    username: "campshattered",
+    email: "campshattered@mail.com",
     password: "password123",
   },
 ];

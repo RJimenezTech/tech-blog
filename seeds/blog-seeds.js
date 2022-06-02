@@ -54,7 +54,7 @@ const blogdata = [
   },
   {
     title: "I am user number 3 with username sampleuser3.",
-    blog_text: "I hope you have a nice day. - sampluser8",
+    blog_text: "I hope you have a nice day. - sampluser3",
     user_id: 3,
   },
   {
