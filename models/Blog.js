@@ -59,16 +59,10 @@ Blog.init(
     blog_text: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isURL: true,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      validate: {
-        isURL: true,
-      },
     },
   },
   {
