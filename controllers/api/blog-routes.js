@@ -103,11 +103,12 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-// update title only if logged in
+// update title && text, only if logged in though
 router.put("/:id", withAuth, (req, res) => {
   Blog.update(
     {
       title: req.body.title,
+      blog_text: req.body.blog_text,
     },
     {
       where: {
