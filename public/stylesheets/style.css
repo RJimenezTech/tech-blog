@@ -31,7 +31,7 @@ header a:hover {
   color: #a71930;
 }
 button {
-  background-color: #225ca3;
+  background-color: #a71930;
   border: 0;
   padding: 1%;
   color: white;
@@ -42,7 +42,8 @@ button {
 }
 
 button:hover {
-  background-color: #03202f;
+  background-color: white;
+  color: #03202f;
 }
 
 .blog-list {
