@@ -47,18 +47,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: [
-      "id",
-      "blog_text",
-      "title",
-      "created_at",
-      // [
-      //   sequelize.literal(
-      //     "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-      //   ),
-      //   "vote_count",
-      // ],
-    ],
+    attributes: ["id", "blog_text", "title", "created_at"],
     include: [
       // {
       //   model: Comment,
@@ -103,12 +92,12 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-// update title && text, only if logged in though
+// update title only if logged in though
 router.put("/:id", withAuth, (req, res) => {
   Blog.update(
     {
       title: req.body.title,
-      blog_text: req.body.blog_text,
+      // blog_text: req.body.blog_text,
     },
     {
       where: {
