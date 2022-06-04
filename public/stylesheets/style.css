@@ -139,10 +139,9 @@ main {
 }
 
 .blog .title span {
-  font-style: italic;
   font-size: 90%;
   color: white;
-  font-weight: bold;
+  opacity: 0.6;
 }
 .blog .title a {
   font-weight: bold;
@@ -163,7 +162,7 @@ main {
 }
 
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: #a71930;
 }
 
 .comment .meta {

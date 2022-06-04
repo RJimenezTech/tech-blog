@@ -7,34 +7,23 @@ const withAuth = require("../../utils/auth");
 router.get("/", (req, res) => {
   console.log("======================");
   Blog.findAll({
-    attributes: [
-      "id",
-      "blog_text",
-      "title",
-      "created_at",
-      //   [
-      //     sequelize.literal(
-      //       "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-      //     ),
-      //     "vote_count",
-      //   ],
-    ],
+    attributes: ["id", "blog_text", "title", "created_at"],
     include: [
-      //   {
-      //     model: Comment,
-      //     attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-      //     include: {
-      //       model: User,
-      //       attributes: ["username"],
-      //     },
-      //   },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "blog_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
       {
         model: User,
         attributes: ["username"],
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbBlogData) => res.json(dbBlogData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -49,26 +38,26 @@ router.get("/:id", (req, res) => {
     },
     attributes: ["id", "blog_text", "title", "created_at"],
     include: [
-      // {
-      //   model: Comment,
-      //   attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-      //   include: {
-      //     model: User,
-      //     attributes: ["username"],
-      //   },
-      // },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "blog_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
       {
         model: User,
         attributes: ["username"],
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No post found with this id" });
+    .then((dbBlogData) => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: "No blog found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbBlogData);
     })
     .catch((err) => {
       console.log(err);
@@ -85,7 +74,7 @@ router.post("/", withAuth, (req, res) => {
     // user_id: req.session.user_id,
     user_id: req.body.user_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbBlogData) => res.json(dbBlogData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -105,12 +94,12 @@ router.put("/:id", withAuth, (req, res) => {
       },
     }
   )
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No post found with this id" });
+    .then((dbBlogData) => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: "No blog found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbBlogData);
     })
     .catch((err) => {
       console.log(err);
@@ -124,12 +113,12 @@ router.delete("/:id", withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No post found with this id" });
+    .then((dbBlogData) => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: "No blog found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbBlogData);
     })
     .catch((err) => {
       console.log(err);

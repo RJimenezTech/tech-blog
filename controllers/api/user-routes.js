@@ -29,14 +29,14 @@ router.get("/:id", (req, res) => {
         model: Blog,
         attributes: ["id", "title", "blog_text", "created_at"],
       },
-      // {
-      //   model: Comment,
-      //   attributes: ["id", "comment_text", "created_at"],
-      //   include: {
-      //     model: Post,
-      //     attributes: ["title"],
-      //   },
-      // },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "created_at"],
+        include: {
+          model: Blog,
+          attributes: ["title"],
+        },
+      },
     ],
   })
     .then((dbUserData) => {

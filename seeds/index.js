@@ -13,8 +13,8 @@ const seedAll = async () => {
   await seedBlogs();
   console.log("--------------");
 
-  //   await seedComments();
-  //   console.log('--------------');
+  await seedComments();
+  console.log("--------------");
 
   process.exit(0);
 };

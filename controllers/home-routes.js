@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const {
-  Blog,
-  User,
-  // Comment
-} = require("../models");
+const { Blog, User, Comment } = require("../models");
 
 // get all blogs for homepage
 router.get("/", (req, res) => {
@@ -12,14 +8,14 @@ router.get("/", (req, res) => {
   Blog.findAll({
     attributes: ["id", "blog_text", "title", "created_at"],
     include: [
-      // {
-      //   model: Comment,
-      //   attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-      //   include: {
-      //     model: User,
-      //     attributes: ["username"],
-      //   },
-      // },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "blog_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
       {
         model: User,
         attributes: ["username"],
@@ -40,7 +36,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// get single post
+// get single blog
 router.get("/blogs/:id", (req, res) => {
   Blog.findOne({
     where: {
@@ -48,14 +44,14 @@ router.get("/blogs/:id", (req, res) => {
     },
     attributes: ["id", "blog_text", "title", "created_at"],
     include: [
-      //   {
-      //     model: Comment,
-      //     attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-      //     include: {
-      //       model: User,
-      //       attributes: ["username"],
-      //     },
-      //   },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "blog_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
       {
         model: User,
         attributes: ["username"],
@@ -64,11 +60,11 @@ router.get("/blogs/:id", (req, res) => {
   })
     .then((dbBlogData) => {
       if (!dbBlogData) {
-        res.status(404).json({ message: "No post found with this id" });
+        res.status(404).json({ message: "No blog found with this id" });
         return;
       }
 
-      const post = dbBlogData.get({ plain: true });
+      const blog = dbBlogData.get({ plain: true });
 
       res.render("single-blog", {
         blog,
