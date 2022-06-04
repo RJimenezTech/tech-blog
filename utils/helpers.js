@@ -18,4 +18,7 @@ module.exports = {
       .split("/")[0]
       .split("?")[0];
   },
+  get_url: (url) => {
+    return document.location.toString(url);
+  },
 };
