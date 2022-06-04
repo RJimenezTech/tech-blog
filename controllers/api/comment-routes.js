@@ -12,11 +12,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", withAuth, (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, blog_id: 2}
   Comment.create({
     comment_text: req.body.comment_text,
     user_id: req.session.user_id,
-    blog_id: req.session.blog_id,
+    blog_id: req.body.blog_id,
   })
     .then((dbCommentData) => res.json(dbCommentData))
     .catch((err) => {
