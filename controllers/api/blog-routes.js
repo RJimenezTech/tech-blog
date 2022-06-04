@@ -86,7 +86,7 @@ router.put("/:id", withAuth, (req, res) => {
   Blog.update(
     {
       title: req.body.title,
-      // blog_text: req.body.blog_text,
+      blog_text: req.body.blog_text,
     },
     {
       where: {

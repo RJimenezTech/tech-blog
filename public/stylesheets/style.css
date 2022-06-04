@@ -95,7 +95,8 @@ header {
   font-weight: bold;
 }
 
-header h1 {
+header h1,
+h2 {
   font-size: 1em;
 }
 header h1 a {
@@ -113,16 +114,16 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: white;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   transition: color 0.1s;
   margin-left: 16px;
 }
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: #a71930;
 }
 
 .delet-btn {
@@ -189,6 +190,10 @@ main {
 .pad {
   padding: 7px 5px 7px 5px;
   font-weight: normal;
+}
+
+.home {
+  padding-right: 15px;
 }
 
 footer {
