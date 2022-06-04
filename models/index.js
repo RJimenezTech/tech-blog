@@ -1,6 +1,5 @@
 const User = require("./User");
 const Blog = require("./Blog");
-const { post } = require("../controllers/dashboard-routes");
 const Comment = require("./Comment");
 
 User.hasMany(Blog, {

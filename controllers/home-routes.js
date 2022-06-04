@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
 
       res.render("homepage", {
         blogs,
-        // loggedIn: req.session.loggedIn,
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {
@@ -68,7 +68,7 @@ router.get("/blogs/:id", (req, res) => {
 
       res.render("single-blog", {
         blog,
-        // loggedIn: req.session.loggedIn,
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {
@@ -77,13 +77,13 @@ router.get("/blogs/:id", (req, res) => {
     });
 });
 
-// router.get("/login", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
 module.exports = router;
